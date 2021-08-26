@@ -38,7 +38,7 @@ module Rubocop
       end
 
       def command
-        return 'git merge-base HEAD origin/master' unless commit
+        return 'git merge-base HEAD origin/main' unless commit
 
         "git log -n 1 --pretty=format:\"%h\" #{commit}"
       end

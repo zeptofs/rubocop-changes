@@ -12,8 +12,8 @@ index 83117fe..92a03ea 100644
        private
 
        def fork_point
--        `git merge-base HEAD origin/master`.strip
-+        Shell.run('git merge-base HEAD origin/master')
+-        `git merge-base HEAD origin/main`.strip
++        Shell.run('git merge-base HEAD origin/main')
        end
 
        def diff
@@ -39,7 +39,7 @@ index 47dc367..8517e4a 100644
 -  it 'does something useful' do
 -    expect(false).to eq(true)
 -  end
-+    expect(Rubocop::Changes::Shell).to receive(:run).with('git merge-base HEAD origin/master').and_return('deadbeef')
++    expect(Rubocop::Changes::Shell).to receive(:run).with('git merge-base HEAD origin/main').and_return('deadbeef')
 +    expect(Rubocop::Changes::Shell).to receive(:run).with('git diff deadbeef').and_return(diff)
 
 -  it 'always passes a formatter' do

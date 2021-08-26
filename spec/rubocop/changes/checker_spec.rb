@@ -19,7 +19,7 @@ RSpec.describe Rubocop::Changes::Checker do
   context 'when the for point is not known' do
     it 'raises an exception' do
       expect(Rubocop::Changes::Shell).to receive(:run).with(
-        'git merge-base HEAD origin/master'
+        'git merge-base HEAD origin/main'
       ).and_return('')
 
       expect do
@@ -58,7 +58,7 @@ RSpec.describe Rubocop::Changes::Checker do
 
     it 'runs a git diff' do
       expect(Rubocop::Changes::Shell).to receive(:run).with(
-        'git merge-base HEAD origin/master'
+        'git merge-base HEAD origin/main'
       ).and_return('deadbeef')
 
       expect(Rubocop::Changes::Shell).to receive(:run).with(
@@ -97,7 +97,7 @@ RSpec.describe Rubocop::Changes::Checker do
     context 'when auto_correct flag is not present' do
       it do
         expect(Rubocop::Changes::Shell).to receive(:run).with(
-          'git merge-base HEAD origin/master'
+          'git merge-base HEAD origin/main'
         ).and_return('deadbeef')
 
         expect(Rubocop::Changes::Shell).to receive(:run).with(
@@ -117,7 +117,7 @@ RSpec.describe Rubocop::Changes::Checker do
 
       it do
         expect(Rubocop::Changes::Shell).to receive(:run).with(
-          'git merge-base HEAD origin/master'
+          'git merge-base HEAD origin/main'
         ).and_return('deadbeef')
 
         expect(Rubocop::Changes::Shell).to receive(:run).with(
